@@ -1,0 +1,1 @@
+#Acá van las funciones que piden los datos para el crud

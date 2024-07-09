@@ -20,6 +20,12 @@ class Menu_Admin:
                     4.- Eliminar usuario médico
                     5.- Volver atrás
                 ''')
+                tarea = input('>>> ')
+                if tarea == '1':
+                    print('Ingrese el RUT del médico: ')
+                    med_rut = input('>>> ')
+                    print('Ingrese el nombre del médico: ')
+                    
             elif opcion == "2":
                 print('''-- Seleccione una opcion --
                     1.- Agregar producto
