@@ -1,6 +1,9 @@
 from db_conection import DBconn
 
 class Admin:
+    def __init__(self, adm_id):
+        self.adm_id = adm_id
+
     def c_med(med_rut, med_nombre, med_apellido, esp_id):
         try:
             db = DBconn()
