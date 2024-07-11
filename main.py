@@ -1,10 +1,4 @@
-from db_conection import DBconn as db
+from auth import login
 
-def main():
-    host = 'localhost';
-    user = 'root';
-    password = '';
-    database = 'killcoronavirus'
-
-    conn = db(host, user, password, database)
-    conn.connect()
+if __name__ == '__main__':
+    login()

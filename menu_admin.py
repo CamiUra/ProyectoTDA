@@ -1,5 +1,3 @@
-from ADMIN import Admin as ad
-
 class Menu_Admin:
     def menu():
         print('-- Menú de Administrador --')
