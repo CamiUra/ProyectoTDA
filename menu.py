@@ -62,7 +62,8 @@ def menu_admin():
                 Medico.med_rut = input('RUT: ')
                 Medico.med_nombre = input('Nombre: ')
                 Medico.med_apellido = input('Apellido: ')
-                c_med(Medico)
+                datos = (Medico.med_rut, Medico.med_nombre, Medico.med_apellido)
+                c_med(datos)
         elif opcion == '2':
             print('''\nSeleccione una opcion
                     1.- Agregar producto

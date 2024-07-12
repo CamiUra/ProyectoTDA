@@ -5,13 +5,13 @@ def c_med(medico):
         try:
             conn = connect()
             cursor = conn.cursor()
-            query = 'INSERT INTO medicos (med_rut, med_nombre, med_apellido, esp_id) VALUES (%s,%s,%s,%s)'
-            valores = (m.med_rut, m.med_nombre, m.med_apellido, m.esp_id)
+            query = 'INSERT INTO medicos (med_rut, med_nombre, med_apellido, esp_id) VALUES (%s,%s,%s, NULL)'
+            valores = (m.med_rut, m.med_nombre, m.med_apellido)
             cursor.execute(query, valores)
             conn.commit()
             print('Usuario médico creado.')
             cursor.close()
-            conn.close()
+            conn.close()    
         except:
             print('Error al crear el usuario médico.')
 
