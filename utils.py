@@ -1,5 +1,5 @@
 def input_login():
-    username = input("Ingrese su nombre de usuario (RUT o 'ADMIN'): ")
+    username = input("Ingrese su usuario: ")
     password = input("Ingrese su contraseña: ")
     return username, password
 

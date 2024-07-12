@@ -1,21 +1,24 @@
 from crud.crud_medico import get_med
-from menu_admin import Menu_Admin
-from menu_medico import Menu_Medico
-
-ADMIN_USER = 'ADMIN'
-ADMIN_PASSWORD = 'admincorona1234'
 
 def create_med_pass(rut):
     return 'killcoronavirus' + rut[-4]
 
-def login(user, password):
-    if user == ADMIN_USER and password == ADMIN_PASSWORD:
-        return Menu_Admin.menu()
+from crud.crud_medico import get_med
+
+ADMIN_USERNAME = "ADMIN"
+ADMIN_PASSWORD = "admincorona123"
+
+def generar_password_medico(rut):
+    return rut[-4:] + "killcoronavirus"
+
+def login(username, password):
+    if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
+        return {"rol": "admin"}
     
-    medico = get_med(user)
+    medico = get_med(username)
     if medico:
-        truePassword = create_med_pass(user)
-        if password == truePassword:
-            return Menu_Medico.menu()
-        
+        expected_password = generar_password_medico(username)
+        if password == expected_password:
+            return {"rol": "medico", "usuario": medico}
+    
     return None

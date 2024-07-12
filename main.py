@@ -1,4 +1,4 @@
-from auth import login
+from menu import menu_principal
 
 if __name__ == '__main__':
-    login()
+    menu_principal()
