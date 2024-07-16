@@ -1,0 +1,51 @@
+-- Tabla especialidades
+CREATE TABLE especialidades (
+    id_especialidad INT PRIMARY KEY,
+    nombre_especialidad VARCHAR(255)
+);
+
+-- Tabla medicos
+CREATE TABLE medicos (
+    rut_medico VARCHAR(20) PRIMARY KEY,
+    nombre_medico VARCHAR(255),
+    apellido_medico VARCHAR(255),
+    id_especialidad INT,
+    FOREIGN KEY (id_especialidad) REFERENCES especialidades(id_especialidad)
+);
+
+-- Tabla productos
+CREATE TABLE productos (
+    id_producto INT PRIMARY KEY,
+    nombre_producto VARCHAR(255),
+    cantidad INT,
+    precio_producto DECIMAL(10, 2)
+);
+
+-- Tabla examenes
+CREATE TABLE examenes (
+    id_examen INT PRIMARY KEY,
+    nombre_examen VARCHAR(255),
+    precio_examen DECIMAL(10, 2)
+);
+
+-- Tabla ficha_medica
+CREATE TABLE ficha_medica (
+    rut_paciente VARCHAR(20),
+    nombre_paciente VARCHAR(255),
+    apellido_paciente VARCHAR(255),
+    rut_medico VARCHAR(20),
+    anamnesis TEXT,
+    diagnostico TEXT,
+    id_examen INT,
+    fecha_atencion DATE,
+    PRIMARY KEY (rut_paciente, fecha_atencion),
+    FOREIGN KEY (rut_medico) REFERENCES medicos(rut_medico),
+    FOREIGN KEY (id_examen) REFERENCES examenes(id_examen)
+);
+
+-- Tabla historial_medico
+CREATE TABLE historial_medico (
+    rut_paciente VARCHAR(20),
+    anamnesis TEXT,
+    FOREIGN KEY (rut_paciente) REFERENCES ficha_medica(rut_paciente)
+);
